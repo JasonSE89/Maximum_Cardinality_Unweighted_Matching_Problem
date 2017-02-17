@@ -25,7 +25,7 @@ public abstract class GraphAlgorithm
     
     public void drawNodes ( Graphics screen, AdjacencyListGraph<Point2D.Double,Double> graph, int minDimension )
     {        
-    	screen.drawString( "PUT YOUR NAME HERE", 20, 20 );
+    	screen.drawString( "Jason Epstein", 20, 20 );
     	
         for ( Vertex u : graph.vertices() )
         {

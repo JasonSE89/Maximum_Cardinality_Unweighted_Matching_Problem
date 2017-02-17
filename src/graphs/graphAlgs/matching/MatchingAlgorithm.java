@@ -73,12 +73,12 @@ public abstract class MatchingAlgorithm extends GraphAlgorithm
      * matched edges shared an endpoint) and is maximal, i.e., it cannot be increased 
      * by adding any more edges. 
      */
-    private static boolean isMaximalMatching( AdjacencyListGraph<Point2D.Double,Double>  g ) {
+    private static boolean isMaximalMatching( AdjacencyListGraph<Point2D.Double,Double>  g) {
         
         /** for every node in the graph, make sure at most one of its edge is marked as "matched" */
         for ( Vertex v : g.vertices() ) {
             boolean hasOneMatchedIncidentEdge = false;
-            for ( Edge e : g.incidentEdges(v) ) {
+            for ( Edge e : g.incidentEdges((Vertex<java.awt.geom.Point2D.Double>) v) ) {
                 if ( e.get(EDGE_STATUS) == MATCHED  && hasOneMatchedIncidentEdge )
                    return false;   // this is the second matched edge incident to v
                                    // so this is not a valid matching
