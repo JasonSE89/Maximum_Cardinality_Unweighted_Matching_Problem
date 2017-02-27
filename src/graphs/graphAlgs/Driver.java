@@ -1,9 +1,15 @@
 package graphs.graphAlgs;
 
+import graphs.graphAlgs.DrawGraph;
+import graphs.graphAlgs.GraphAlgorithm;
+import graphs.graphAlgs.GraphDriver;
 import graphs.graphAlgs.matching.*;
 import graphs.graphAlgs.sampleInputGraphs.*;
+
 import javax.swing.*;
+
 import java.awt.geom.Point2D;
+
 import net.datastructures.*;
 
 public class Driver
@@ -45,7 +51,8 @@ public class Driver
         String[] algorithmOptions = {
                 "Draw the Graph", 
                 "Greedy Unweighted Matching, obvious",
-                "Greedy Unweighted Matching, static"
+                "Greedy Unweighted Matching, static",
+                "Greedy Unweighted Matching, dynamic"
             };    
 
         String choice = (String)JOptionPane.showInputDialog(
@@ -66,9 +73,12 @@ public class Driver
         else if ( choice.equals ( algorithmOptions[1] ) )
         	algorithm = new GreedyUnweightedMatchingObvious();
 
-        else 
+        else if ( choice.equals ( algorithmOptions[2] ) )
             algorithm = new GreedyUnweightedMatchingStatic(); 
 
+        else 
+            algorithm = new GreedyUnweightedMatchingDynamic(); 
+        
         return algorithm;
     }
 
